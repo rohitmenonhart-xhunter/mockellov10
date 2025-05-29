@@ -1,0 +1,40 @@
+# Allow all web crawlers
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+
+# Google-specific crawlers
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Bing-specific crawlers
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Social media crawlers
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+# Block AI crawlers
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://mockello.com/sitemap.xml
