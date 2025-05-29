@@ -3,9 +3,8 @@
   "framework": null,
   "buildCommand": "chmod +x vercel-build.sh && ./vercel-build.sh",
   "outputDirectory": "dist",
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/index.html" }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
   "env": {
     "VITE_CLERK_PUBLISHABLE_KEY": "pk_live_Y2xlcmsubW9ja2VsbG8uY29tJA",
