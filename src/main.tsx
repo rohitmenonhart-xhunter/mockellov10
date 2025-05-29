@@ -1,5 +1,6 @@
 import { createRoot } from 'react-dom/client'
 import { ClerkProvider } from "@clerk/clerk-react";
+import { getClerkConfig } from "@/lib/auth";
 import App from './App.tsx'
 import './index.css'
 
@@ -13,6 +14,9 @@ if (!PUBLISHABLE_KEY) {
   throw new Error("Missing Clerk Publishable Key");
 }
 
+// Get domain-specific Clerk configuration
+const clerkConfig = getClerkConfig();
+
 createRoot(document.getElementById("root")!).render(
   <ClerkProvider 
     publishableKey={PUBLISHABLE_KEY}
@@ -21,6 +25,7 @@ createRoot(document.getElementById("root")!).render(
     afterSignInUrl={AFTER_SIGN_IN_URL}
     afterSignUpUrl={AFTER_SIGN_UP_URL}
     afterSignOutUrl="/"
+    proxyUrl={clerkConfig.proxyUrl}
     appearance={{
       layout: {
         logoPlacement: "inside",
